@@ -1,0 +1,148 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block id="YJru=:{2Qc{2Ti1GOQX=" type="device_button_event">
+<field name="NAME">Button.B</field>
+<statement name="HANDLER">
+<block id="l0a91d+cdB)WP~OjiK/o" type="variables_set">
+<field name="VAR">value</field>
+<value name="VALUE">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="phm_readph">
+</block>
+</value>
+<next>
+<block id="Z].fSU#}dp`{rSx2^XEP" type="controls_if">
+<mutation elseif="0" else="1" />
+<value name="IF0">
+<shadow type="logic_boolean"><field name="BOOL">TRUE</field></shadow>
+<block type="logic_compare">
+<field name="OP">EQ</field>
+<value name="A">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="phm_phstatus">
+</block>
+</value>
+<value name="B">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="phm_statuscode">
+<field name="status">PHStatus.OK</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block id="p]j(LkH5v|OCBzv|aB+5" type="serial_writevalue">
+<value name="name">
+<shadow type="text">
+<field name="TEXT">pH</field>
+</shadow>
+</value>
+<value name="value">
+<block type="variables_get">
+<field name="VAR">value</field>
+</block>
+</value>
+<next>
+<block id="7|N8P/A-P1`2QV$Yl[z?" type="device_show_number">
+<value name="number">
+<block type="math_arithmetic">
+<field name="OP">DIVIDE</field>
+<value name="A">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="math_js_round">
+<field name="OP">round</field>
+<value name="ARG0">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="math_arithmetic">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="variables_get">
+<field name="VAR">value</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">100</field>
+</shadow>
+</value>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">100</field>
+</shadow>
+</value>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<statement name="ELSE">
+<block id="RXOe$B,@zkU,@y2IXFV?" type="device_print_message">
+<value name="text">
+<shadow type="text">
+<field name="TEXT">PH ERR</field>
+</shadow>
+</value>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block id="xRRgvHNlG#rZ^u`HECiY" type="pxt-on-start">
+<statement name="HANDLER">
+<block id="5tgM(IX{4i+:Vp[/,H|N" type="phm_setup">
+<field name="analogPin">PHAnalogPin.P1</field>
+<field name="temperaturePin">PHTemperaturePin.P2</field>
+<next>
+<block id="|7)eaQE?sdcg+q]UOG35" type="phm_atc">
+<value name="enabled">
+<shadow type="logic_boolean">
+<field name="BOOL">FALSE</field>
+</shadow>
+</value>
+<next>
+<block id="D}c|2QVKb7coxmW9*cXO" type="controls_if">
+<mutation elseif="0" else="1" />
+<value name="IF0">
+<shadow type="logic_boolean"><field name="BOOL">TRUE</field></shadow>
+<block type="phm_restore">
+<value name="data">
+<shadow type="text">
+<field name="TEXT"></field>
+</shadow>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block id="!,Z-}x,U$wZJKzr1;sT;" type="device_print_message">
+<value name="text">
+<shadow type="text">
+<field name="TEXT">OK</field>
+</shadow>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block id="OeAGe55S1P?9nsWykeE)" type="device_print_message">
+<value name="text">
+<shadow type="text">
+<field name="TEXT">CAL ERR</field>
+</shadow>
+</value>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+<comment pinned="false">Paste the complete PH1&#44;... parameter from your own calibration here.&#10;Empty text deliberately prevents measurement until a valid parameter is supplied.</comment>
+</block>
+</statement>
+</block>
+</xml>

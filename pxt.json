@@ -1,0 +1,23 @@
+{
+    "name": "ph-meter",
+    "version": "0.3.2",
+    "description": "Calibrated analog pH and DS18B20 water temperature for micro:bit with Robotbit",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "main.ts",
+        "onewire.cpp",
+        "README.md",
+        "SIMPLIFIED.md"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
+}

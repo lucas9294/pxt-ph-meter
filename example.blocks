@@ -1,0 +1,85 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block id="V,}Llu/cS2].QQpNQF8H" type="device_button_event">
+<field name="NAME">Button.A</field>
+<statement name="HANDLER">
+<block id="qb8b{KDaG.?l9O=h0xn%" type="device_show_number">
+<value name="number">
+<block type="phm_readph">
+</block>
+</value>
+</block>
+</statement>
+</block>
+<block id="hb+.VJ.XqpyozX{f?|gP" type="device_button_event">
+<field name="NAME">Button.B</field>
+<statement name="HANDLER">
+<block id="$3;}z[M$_jXZyeGFVzI/" type="device_show_number">
+<value name="number">
+<block type="phm_readtemp">
+</block>
+</value>
+</block>
+</statement>
+</block>
+<block id=";E[=5h,0-g%banq(IEWY" type="device_button_event">
+<field name="NAME">Button.AB</field>
+<statement name="HANDLER">
+<block id="+`}U%XPdFlbe2?Ig[gkZ" type="serial_writevalue">
+<value name="name">
+<shadow type="text">
+<field name="TEXT">pH_ADC</field>
+</shadow>
+</value>
+<value name="value">
+<block type="phm_readraw">
+</block>
+</value>
+<next>
+<block id="@n]W{%crs9vdCg{8~5Es" type="serial_writevalue">
+<value name="name">
+<shadow type="text">
+<field name="TEXT">temperature_raw</field>
+</shadow>
+</value>
+<value name="value">
+<block type="phm_raw_temperature">
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block id="xRRgvHNlG#rZ^u`HECiY" type="pxt-on-start">
+<statement name="HANDLER">
+<block id="Y@w,Z#v=e%*T7C_rz`0o" type="phm_setup">
+<field name="analogPin">PHAnalogPin.P1</field>
+<field name="temperaturePin">PHTemperaturePin.P2</field>
+<next>
+<block id="fz,0ctjs06GzxdoXHbo," type="phm_atc">
+<value name="enabled">
+<shadow type="logic_boolean">
+<field name="BOOL">FALSE</field>
+</shadow>
+</value>
+<next>
+<block id="}4Sd-=IkRoiXB3ld}iS0" type="phm_parameters">
+<value name="enabled">
+<shadow type="logic_boolean">
+<field name="BOOL">FALSE</field>
+</shadow>
+</value>
+<value name="data">
+<shadow type="text">
+<field name="TEXT"></field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+<comment pinned="false">Default estimates require a 10k&#47;10k divider. Replace with your calibration for accurate readings.</comment>
+</block>
+</statement>
+</block>
+</xml>
